@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 9.99
+  client: one
+  date: 2019-07-10
+  service: one
+  discount: one
+  start: MyString
+  end: MyString
+  observations: MyText
+  status: 1
+
+two:
+  total: 9.99
+  client: two
+  date: 2019-07-10
+  service: two
+  discount: two
+  start: MyString
+  end: MyString
+  observations: MyText
+  status: 1
