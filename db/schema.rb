@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190710111208) do
+ActiveRecord::Schema.define(version: 20190711180359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -205,6 +205,21 @@ ActiveRecord::Schema.define(version: 20190710111208) do
     t.index ["unlock_token"], name: "index_fae_users_on_unlock_token", unique: true, using: :btree
   end
 
+  create_table "newscheduleds", force: :cascade do |t|
+    t.decimal  "total"
+    t.integer  "discount_id"
+    t.integer  "client_id"
+    t.text     "observations"
+    t.integer  "status"
+    t.date     "date"
+    t.string   "start"
+    t.string   "end"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["client_id"], name: "index_newscheduleds_on_client_id", using: :btree
+    t.index ["discount_id"], name: "index_newscheduleds_on_discount_id", using: :btree
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -285,6 +300,8 @@ ActiveRecord::Schema.define(version: 20190710111208) do
   add_foreign_key "adresses", "clients"
   add_foreign_key "campaign_clients", "campaigns"
   add_foreign_key "campaign_clients", "clients"
+  add_foreign_key "newscheduleds", "clients"
+  add_foreign_key "newscheduleds", "discounts"
   add_foreign_key "products", "suppliers"
   add_foreign_key "scheduleds", "clients"
   add_foreign_key "scheduleds", "discounts"
