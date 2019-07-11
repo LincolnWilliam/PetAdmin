@@ -4,7 +4,8 @@ class Client < ApplicationRecord
   has_many :campaign_clients, dependent: :destroy
   has_many :adress, dependent: :destroy
   has_many :campaigns, through: :campaign_clients
-
+  has_many :scheduleds, dependent: :destroy 
+  
   validates :phone, presence: true
   validates :email,    # validando email
     uniqueness: true,  # seja unico

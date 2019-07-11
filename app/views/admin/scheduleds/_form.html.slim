@@ -2,13 +2,14 @@
   == render 'fae/shared/form_header', header: @klass_name
 
   main.content
-    = fae_input f, :total
-    = fae_input f, :date
-    = fae_input f, :start
-    = fae_input f, :end
-    = fae_input f, :observations
-    = fae_input f, :status
-
     = fae_association f, :client
     = fae_association f, :service
     = fae_association f, :discount
+        
+    = fae_datepicker f, :date
+    = fae_prefix f, :start, prefix: 'Hr', placeholder: '00:00'
+    = fae_prefix f, :end, prefix: 'Hr', placeholder: '00:00'
+    = fae_input f, :observations
+    = fae_pulldown f, :status, size: 'long', collection: Scheduled.statuses.to_a, selected: Scheduled.statuses[@item.status]
+    
+  

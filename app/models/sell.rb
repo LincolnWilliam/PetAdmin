@@ -38,3 +38,5 @@ class Sell < ApplicationRecord
     self.total = total
   end
 end
+
+
